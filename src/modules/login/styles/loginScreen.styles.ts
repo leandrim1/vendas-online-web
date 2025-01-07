@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Space, Typography } from 'antd';
+import { Typography } from 'antd';
 
 const { Title } = Typography;
 
@@ -17,10 +17,6 @@ export const BackgroundImage = styled.img`
   height: 100vh;
   object-fit: cover;
   z-index: -1;
-`;
-
-export const LogoImage = styled.img`
-  width: 72px;
 `;
 
 export const TitleLogin = styled(Title)`

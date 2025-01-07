@@ -1,10 +1,22 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
 
-createRoot(document.getElementById('root')!).render(
+import { loginRoutes } from './modules/login/routes';
+
+const MainRoutes: RouteObject[] = [
+  {
+    path: '/',
+    element: <div>Tela Principal</div>,
+    errorElement: <div>Página não encontrada</div>,
+  },
+];
+
+const router = createBrowserRouter([...MainRoutes, ...loginRoutes]);
+
+createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 );
