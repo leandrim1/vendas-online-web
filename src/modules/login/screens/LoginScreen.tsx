@@ -13,7 +13,7 @@ import { useRequests } from '../../shared/hooks/useRequests';
 import { useGlobalContext } from '../../shared/hooks/useGlobalContext';
 
 const LoginScreen = () => {
-  const { accessToken, setAccessToken } = useGlobalContext()
+  const { accessToken, setAccessToken } = useGlobalContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { postRequest, loading } = useRequests();
