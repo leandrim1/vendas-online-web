@@ -1,11 +1,13 @@
+import './index.css';
+
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
 import { createBrowserRouter, RouteObject, RouterProvider } from 'react-router-dom';
 
 import { loginRoutes } from './modules/login/routes';
+import { GlobalProvider } from './modules/shared/hooks/useGlobalContext';
 
-const MainRoutes: RouteObject[] = [
+const mainRoutes: RouteObject[] = [
   {
     path: '/',
     element: <div>Tela Principal</div>,
@@ -13,10 +15,12 @@ const MainRoutes: RouteObject[] = [
   },
 ];
 
-const router = createBrowserRouter([...MainRoutes, ...loginRoutes]);
+const router = createBrowserRouter([...mainRoutes, ...loginRoutes]);
 
 createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <GlobalProvider>
+      <RouterProvider router={router} />
+    </GlobalProvider>
   </StrictMode>,
 );

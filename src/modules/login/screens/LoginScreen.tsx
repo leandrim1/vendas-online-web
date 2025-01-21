@@ -10,8 +10,10 @@ import {
 import { useState } from 'react';
 import SVGLogo from '../../shared/components/icons/SVGLogo';
 import { useRequests } from '../../shared/hooks/useRequests';
+import { useGlobalContext } from '../../shared/hooks/useGlobalContext';
 
 const LoginScreen = () => {
+  const { accessToken, setAccessToken } = useGlobalContext()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { postRequest, loading } = useRequests();
@@ -25,6 +27,7 @@ const LoginScreen = () => {
   };
 
   const handleLogin = () => {
+    setAccessToken('novo token');
     postRequest('http://localhost:8080/auth', {
       email: email,
       senha: password,
@@ -39,7 +42,7 @@ const LoginScreen = () => {
           <LimitedContainer>
             <SVGLogo />
             <TitleLogin level={2} type="secondary">
-              LOGIN
+              LOGIN ({accessToken})
             </TitleLogin>
             <Input title="EMAIL" margin="32px 0px 0px" onChange={handleEmail} value={email} />
             <Input
