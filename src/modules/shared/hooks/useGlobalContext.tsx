@@ -54,7 +54,7 @@ export const useGlobalContext = () => {
         message,
         type,
         description,
-      }
+      },
     });
   };
 
