@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useGlobalContext } from './useGlobalContext';
 
 export const useRequests = () => {
